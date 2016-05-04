@@ -1,0 +1,98 @@
+<div>
+  <h1>{{cat.type}}</h1>
+  <div ui-view>
+    <nav class="">
+      <ul class="nav nav-pills">
+        <li><a ui-sref="admin.category.new({id: cat.type})">Nuevo producto</a></li>
+      </ul>
+    </nav>
+    <table class="table" ng-show="cat.type == 'Deuda'">
+      <thead>
+        <tr>
+          <th></th>
+          <th><span>Tasa mínima</span></th>
+          <th><span>Tasa máxima</span></th>
+          <th><span>Monto mínimo de inversión</span></th>
+          <th><span>Monto máximo de inversión</span></th>
+          <th><span>Link</span></th>
+          <th><span></span></th>
+          <th><span></span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="deuda in cat.resources">
+          <td>Content</td>
+          <td><span class="btnOrange">{{deuda.tasa_min}}</span></td>
+          <td><span class="btnBlue">{{deuda.tasa_max}}</span></td>
+          <td>{{deuda.monto_min}}</td>
+          <td>{{deuda.tasa_max}}</td>
+          <td><a class="link" ng-href="{{deuda.link}}" target="_blank">{{deuda.link}}</a></td>
+          <td><a ng-click="cat.delete($event, deuda.id)" href="#">Eliminar</a></td>
+          <td><a ui-sref="admin.category.edit({id: cat.type, item: deuda.id})">Editar</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table" ng-show="cat.type == 'Equidad'">
+      <thead>
+        <tr>
+          <th></th>
+          <th><span>Ronda</span></th>
+          <th><span>Inversión<br>comprometida</span></th>
+          <th><span>Tipo de<br>producto</span></th>
+          <th><span>Industria</span></th>
+          <th><span>Stage</span></th>
+          <th><span>Link</span></th>
+          <th><span></span></th>
+          <th><span></span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="deuda in cat.resources">
+          <td>Content</td>
+          <td><span class="btnBlue">{{deuda.ronda}}</span></td>
+          <td><span class="btnOrange">{{deuda.inversion}}</span></td>
+          <td>{{deuda.tipo}}</td>
+          <td>{{deuda.industria}}</td>
+          <td>{{deuda.stage}}</td>
+          <td><a class="link" ng-href="{{deuda.link}}" target="_blank"></a></td>
+          <td><a ng-click="cat.delete($event, deuda.id)" href="#">Eliminar</a></td>
+          <td><a ui-sref="admin.category.edit({id: cat.type, item: deuda.id})">Editar</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table" ng-show="cat.type == 'Financiero'">
+      <thead>
+        <tr>
+          <th></th>
+          <th><span>Producto</span></th>
+          <th><span>Tipo</span></th>
+          <th><span>Plazo de<br>liquidez</span></th>
+          <th><span>Calificación</span></th>
+          <th><span>Rendimiento<br>últimos 3 años</span></th>
+          <th><span>Link</span></th>
+          <th><span></span></th>
+          <th><span></span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="deuda in cat.resources">
+          <td>Content</td>
+          <td>{{deuda.producto}}</td>
+          <td>{{deuda.tipo}}</td>
+          <td>{{deuda.plazo}}</td>
+          <td>{{deuda.calificacion}}</td>
+          <td>{{deuda.rendimiento}}</td>
+          <td><a class="link" ng-href="{{deuda.link}}" target="_blank"></a></td>
+          <td><a ng-click="cat.delete($event, deuda.id)" href="#">Eliminar</a></td>
+          <td><a ui-sref="admin.category.edit({id: cat.type, item: deuda.id})">Editar</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alerts">
+      <alert ng-repeat="alert in cat.alertService.get()" type="{{alert.type}}" close="alert.close($index)">{{ alert.msg }}</alert>
+    </div>
+  </div>
+</div>

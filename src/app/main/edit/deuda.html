@@ -1,0 +1,109 @@
+<div class="row">
+  <div class="col-sm-6">
+
+    <form ng-submit="cat.createProduct($event)" ng-show="cat.typeName == 'Deuda'">
+      <div class="form-group">
+        <label>Imagen</label>
+        <span ng-show="cat.Deuda.image"><a ng-href="{{cat.Deuda.image}}" target="_blank">{{cat.Deuda.image}}</a></span>
+        <div>
+          <button type="button" class="btn btn-link" ng-click="cat.setImage(cat.typeName)">Cargar</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Tasa mínima</label>
+        <input type="text" placeholder="Tasa mínima" class="form-control" ng-model="cat.Deuda.tasa_min" required>
+      </div>
+      <div class="form-group">
+        <label>Tasa máxima</label>
+        <input type="text" placeholder="Tasa máxima" class="form-control" ng-model="cat.Deuda.tasa_max" required>
+      </div>
+      <div class="form-group">
+        <label>Monto mínimo de inversión</label>
+        <input type="text" placeholder="Monto mínimo de inversión" class="form-control" ng-model="cat.Deuda.monto_min" required>
+      </div>
+      <div class="form-group">
+        <label>Monto máximo de inversión</label>
+        <input type="text" placeholder="Monto máximo de inversión" class="form-control" ng-model="cat.Deuda.monto_max" required>
+      </div>
+      <div class="form-group">
+        <label>Link</label>
+        <input type="url" placeholder="Link" class="form-control" ng-model="cat.Deuda.link" required>
+      </div>
+      <a class="btn btn-default" ui-sref="admin.category({id: cat.typeName})" ui-sref-opts="{reload: true}">Regresar</a>
+      <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+
+    <form ng-submit="cat.createProduct($event)" ng-show="cat.typeName == 'Equidad'">
+      <div class="form-group">
+        <label>Imagen</label>
+        <span ng-show="cat.Equidad.image"><a ng-href="{{cat.Equidad.image}}" target="_blank">{{cat.Equidad.image}}</a></span>
+        <div>
+          <button type="button" class="btn btn-link" ng-click="cat.setImage(cat.typeName)">Cargar</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Ronda</label>
+        <input type="text" placeholder="Ronda" class="form-control" ng-model="cat.Equidad.ronda" required>
+      </div>
+      <div class="form-group">
+        <label>Inversión<br>comprometida</label>
+        <input type="text" placeholder="Inversión comprometida" class="form-control" ng-model="cat.Equidad.inversion" required>
+      </div>
+      <div class="form-group">
+        <label>Tipo de<br>producto</label>
+        <input type="text" placeholder="Tipo de producto" class="form-control" ng-model="cat.Equidad.tipo" required>
+      </div>
+      <div class="form-group">
+        <label>Industria</label>
+        <input type="text" placeholder="Industria" class="form-control" ng-model="cat.Equidad.industria" required>
+      </div>
+      <div class="form-group">
+        <label>Stage</label>
+        <input type="text" placeholder="Stage" class="form-control" ng-model="cat.Equidad.stage" required>
+      </div>
+      <div class="form-group">
+        <label>Link</label>
+        <input type="text" placeholder="Link" class="form-control" ng-model="cat.Equidad.link" required>
+      </div>
+      <a class="btn btn-default" ui-sref="admin.category({id: cat.typeName})" ui-sref-opts="{reload: true}">Regresar</a>
+      <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+
+    <form ng-submit="cat.createProduct($event)" ng-show="cat.typeName == 'Financiero'">
+      <div class="form-group">
+        <label>Imagen</label>
+        <span ng-show="cat.Financiero.image"><a ng-href="{{cat.Financiero.image}}" target="_blank">{{cat.Financiero.image}}</a></span>
+        <div>
+          <button type="button" class="btn btn-link" ng-click="cat.setImage(cat.typeName)">Cargar</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Producto</label>
+        <input type="text" placeholder="Producto" class="form-control" ng-model="cat.Financiero.producto" required>
+      </div>
+      <div class="form-group">
+        <label>Tipo</label>
+        <input type="text" placeholder="Tipo" class="form-control" ng-model="cat.Financiero.tipo" required>
+      </div>
+      <div class="form-group">
+        <label>Plazo de liquidez</label>
+        <input type="text" placeholder="Plazo de liquidez" class="form-control" ng-model="cat.Financiero.plazo" required>
+      </div>
+      <div class="form-group">
+        <label>Calificación</label>
+        <input type="text" placeholder="Calificación" class="form-control" ng-model="cat.Financiero.calificacion" required>
+      </div>
+      <div class="form-group">
+        <label>Rendimiento últimos 3 años</label>
+        <input type="text" placeholder="Rendimiento últimos 3 años" class="form-control" ng-model="cat.Financiero.rendimiento" required>
+      </div>
+      <div class="form-group">
+        <label>Link</label>
+        <input type="text" placeholder="Link" class="form-control" ng-model="cat.Financiero.link" required>
+      </div>
+      <a class="btn btn-default" ui-sref="admin.category({id: cat.typeName})" ui-sref-opts="{reload: true}">Regresar</a>
+      <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+
+  </div>
+</div>
