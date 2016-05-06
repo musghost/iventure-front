@@ -91,8 +91,26 @@
       </tbody>
     </table>
 
-    <div class="alerts">
-      <alert ng-repeat="alert in cat.alertService.get()" type="{{alert.type}}" close="alert.close($index)">{{ alert.msg }}</alert>
-    </div>
+    <table class="table" ng-show="cat.type == 'Crypto'">
+      <thead>
+        <tr>
+          <th><span>Página WEB</span></th>
+          <th><span>Compra</span></th>
+          <th><span>Venta</span></th>
+          <th><span>Link</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="deuda in cat.resources">
+          <td>{{deuda.pagina}}</td>
+          <td>{{deuda.compra}}</td>
+          <td>{{deuda.venta}}</td>
+          <td><a class="link" ng-href="{{deuda.link}}" target="_blank"></a></td>
+          <td><a ng-click="cat.delete($event, deuda.id)" href="#">Eliminar</a></td>
+          <td><a ui-sref="admin.category.edit({id: cat.type, item: deuda.id})">Editar</a></td>
+        </tr>
+      </tbody>
+    </table>
+
   </div>
 </div>

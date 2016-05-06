@@ -170,6 +170,7 @@ header {
           width: auto;
           height: auto;
           padding: 15px 0;
+          margin: 0 15px;
 
           &:after, &:before{
             display: none
@@ -286,6 +287,11 @@ header {
           background-position: -225px 16px;
         }
       }
+      &.financieros {
+        &:before {
+          background-position: -225px 16px;
+        }
+      }
     }
   }
 }
@@ -316,6 +322,19 @@ header {
     border-spacing: 0;
     border-collapse: collapse;
     text-align: center;
+
+    &.all-border {
+      th {
+        &:nth-child(1) {
+          background: $orange;
+          border-radius: 10px 0 0 10px;
+        }
+
+        &:nth-child(2) {
+          border-radius: 0 0 0 0;
+        }
+      }
+    }
 
     thead {
       border-bottom: 10px;
@@ -448,6 +467,22 @@ header {
       td {
         padding: 10px 30px;
       }
+    }
+  }
+}
+.mellow {
+  margin-top: 20px;
+}
+
+.footer {
+  text-align: center;
+  .container {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  @media screen and (max-width: $screen-xs-max) {
+    .col-sm-6 + .col-sm-6 {
+      background: #EAEAEB;
     }
   }
 }

@@ -35,6 +35,17 @@ angular.module 'iventureFront'
               .$promise
               .then (response) ->
                 response
+      .state 'deuda.crypto',
+        url: 'cryptocurrency'
+        templateUrl: 'app/main/crypto.html'
+        controller: 'CryptoController'
+        controllerAs: 'main'
+        resolve:
+          cryptos: (Crypto) ->
+            Crypto.find()
+              .$promise
+              .then (response) ->
+                response
       .state 'login',
         url: '/login'
         templateUrl: 'app/main/login.html'
@@ -64,7 +75,7 @@ angular.module 'iventureFront'
         controller: 'EditCategoryController'
         controllerAs: 'cat'
         resolve:
-          type: ($stateParams, Equidad, Financiero, Deuda) ->
+          type: ($stateParams, Equidad, Financiero, Deuda, Crypto) ->
             Cat = eval($stateParams.id)
             Cat
               .findById({id: $stateParams.item})

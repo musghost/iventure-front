@@ -22,6 +22,11 @@ angular.module 'iventureFront'
     vm = this
     vm.financieros = financieros
     return
+  .controller 'CryptoController', (cryptos) ->
+    'ngInject'
+    vm = this
+    vm.cryptos = cryptos
+    return
   .controller 'AdminController', ($state) ->
     'ngInject'
     vm = this
@@ -30,10 +35,11 @@ angular.module 'iventureFront'
       {id: 'Deuda', name: 'Deuda'},
       {id: 'Equidad', name: 'Equidad'},
       {id: 'Financiero', name: 'Financiero'}
+      {id: 'Crypto', name: 'Cryptocurrency'}
     ]
     return
 
-  .controller 'CategoryController', (type, Deuda, Equidad, Financiero, toastr) ->
+  .controller 'CategoryController', (type, Deuda, Equidad, Financiero, Crypto, toastr) ->
     'ngInject'
     vm = this
     vm.type = type
@@ -80,7 +86,7 @@ angular.module 'iventureFront'
 
     vm[vm.typeName] = type
     return
-  .controller 'NewCategoryController', (type, toastr, $stateParams, Deuda, Equidad, Financiero, $state, $uibModal) ->
+  .controller 'NewCategoryController', (type, toastr, $stateParams, Deuda, Equidad, Financiero, Crypto, $state, $uibModal) ->
     'ngInject'
     vm = this
     vm.Deuda = {}

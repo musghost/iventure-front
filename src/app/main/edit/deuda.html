@@ -105,5 +105,26 @@
       <button type="submit" class="btn btn-success">Guardar</button>
     </form>
 
+    <form ng-submit="cat.createProduct($event)" ng-show="cat.typeName == 'Crypto'">
+      <div class="form-group">
+        <label>Página WEB</label>
+        <input type="text" placeholder="Página WEB" class="form-control" ng-model="cat.Crypto.pagina" required>
+      </div>
+      <div class="form-group">
+        <label>Compra</label>
+        <input type="text" placeholder="Compra" class="form-control" ng-model="cat.Crypto.compra" required>
+      </div>
+      <div class="form-group">
+        <label>Venta</label>
+        <input type="text" placeholder="Venta" class="form-control" ng-model="cat.Crypto.venta" required>
+      </div>
+      <div class="form-group">
+        <label>Link</label>
+        <input type="text" placeholder="Link" class="form-control" ng-model="cat.Crypto.link" required>
+      </div>
+      <a class="btn btn-default" ui-sref="admin.category({id: cat.typeName})" ui-sref-opts="{reload: true}">Regresar</a>
+      <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+
   </div>
 </div>
