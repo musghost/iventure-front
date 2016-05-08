@@ -65,7 +65,7 @@ angular.module 'iventureFront'
           toastr.error 'Error', 'No se pudo borrar el elemento'
 
     return
-  .controller 'EditCategoryController', (type, toastr, $stateParams) ->
+  .controller 'EditCategoryController', (type, toastr, $stateParams, $uibModal, base) ->
     'ngInject'
     vm = this
 
@@ -83,6 +83,40 @@ angular.module 'iventureFront'
           else
             toastr.error 'Error al guardar el producto.', 'Intente más tarde'
       return
+
+    vm.setImage = (type) ->
+      modal = $uibModal.open({
+        animation: true
+        templateUrl: 'app/main/edit/upload.html'
+        size: 'md'
+        controller: ($scope, base) ->
+          formdata = new FormData()
+
+          $scope.saveIt = ->
+            $.ajax({
+              url: "http://#{base}/api/containers/#{type}/upload"
+              type: 'POST'
+              data: formdata
+              async: false
+              success: (response) ->
+                $scope.$close("http://#{base}/api/containers/#{type}/download/#{response.result.files.file[0].name}")
+              error: () ->
+                console.log 'error'
+              cache: false
+              contentType: false
+              processData: false
+            })
+            return
+          $scope.getTheFiles = ($files) ->
+            angular.forEach $files, (value, key) ->
+              formdata.append 'file', value
+            console.log formdata
+          return
+      })
+      modal.result.then (result) ->
+        console.log result
+        if result
+          vm[vm.typeName].imagen = result
 
     vm[vm.typeName] = type
     return
@@ -137,7 +171,7 @@ angular.module 'iventureFront'
       modal.result.then (result) ->
         console.log result
         if result
-          vm[vm.typeName].image = result
+          vm[vm.typeName].imagen = result
 
     return
   .controller 'LoginController', (User, $state) ->

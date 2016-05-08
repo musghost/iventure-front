@@ -32,8 +32,8 @@
             <th></th>
             <th><span>Tasa mínima</span></th>
             <th><span>Tasa máxima</span></th>
-            <th><span>Monto mínimo de inversión</span></th>
-            <th><span>Monto máximo de inversión</span></th>
+            <th><span>Monto mínimo<br>de inversión</span></th>
+            <th><span>Monto máximo<br>de inversión</span></th>
             <th><span>Link</span></th>
           </tr>
         </thead>
@@ -42,7 +42,7 @@
             <td colspan="6"></td>
           </tr>
           <tr ng-repeat="deuda in main.deudas">
-            <td>Content</td>
+            <td><img ng-src="{{deuda.imagen}}"></td>
             <td><span class="btnOrange">{{deuda.tasa_min}}</span></td>
             <td><span class="btnBlue">{{deuda.tasa_max}}</span></td>
             <td>{{deuda.monto_min}}</td>

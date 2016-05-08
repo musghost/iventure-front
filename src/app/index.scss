@@ -284,10 +284,10 @@ header {
 
       &.financieros {
         &:before {
-          background-position: -225px 16px;
+          background-position: -142px 16px;
         }
       }
-      &.financieros {
+      &.crypto {
         &:before {
           background-position: -225px 16px;
         }
@@ -415,6 +415,7 @@ header {
 .footer {
   background: #162142;
   color: #fff;
+  padding: 20px 0;
 
   .container {
     margin: 0 auto;
