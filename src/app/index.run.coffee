@@ -7,3 +7,11 @@ angular.module 'iventureFront'
       if admin == 'admin' && !User.isAuthenticated()
         e.preventDefault()
         $state.go 'login'
+
+    $rootScope.$on '$stateChangeSuccess', (event, toState) ->
+      if toState.name != 'deuda'
+        $('header').addClass 'slow'
+        console.log 'hide'
+      else
+        $('header').removeClass 'slow'
+        console.log 'show'

@@ -9,7 +9,7 @@ angular.module 'iventureFront'
     toastrConfig.positionClass = 'toast-top-right'
     toastrConfig.preventDuplicates = true
     toastrConfig.progressBar = true
-    LoopBackResourceProvider.setUrlBase 'http://localhost:3000/api'
+    LoopBackResourceProvider.setUrlBase 'http://iv-api.mellow.online/api'
 
     $httpProvider.interceptors.push ($q, $location, LoopBackAuth) ->
       responseError: (rejection) ->
