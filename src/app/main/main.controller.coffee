@@ -7,6 +7,22 @@ angular.module 'iventureFront'
     {
       link: fn_link
     }
+  .directive 'setClassWhenAtTop', ($window) ->
+    $win = angular.element($window)
+    # wrap window object as jQuery object
+    restrict: 'A'
+    link: (scope, element, attrs) ->
+      console.log 'link'
+      topClass = attrs.setClassWhenAtTop
+      offsetTop = element.offset().top
+      # get element's offset top relative to document
+      $win.on 'scroll', (e) ->
+        if $win.scrollTop() >= offsetTop
+          element.addClass topClass
+        else
+          element.removeClass topClass
+        return
+      return
   .controller 'MainController', ($timeout, webDevTec, toastr, deudas) ->
     'ngInject'
     vm = this

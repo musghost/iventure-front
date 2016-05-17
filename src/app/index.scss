@@ -134,14 +134,14 @@ header {
   color: #fff;
   min-height: 620px;
   background-color: #1d2848;
-  background-image: url(../assets/images/background.jpg);
+  background-image: url(../assets/images/fondo_mex.jpg);
   background-position: 50% 50%;
   background-size: cover;
   padding-top: 20px;
   text-align: center;
 
   @media screen and (max-width: $screen-xs-max) {
-    min-height: auto;
+    min-height: inherit;
     margin-bottom: 0;
     padding-bottom: 0;
     text-align: center;
@@ -258,6 +258,32 @@ header {
   }
 
   .navigation {
+
+    &.sticky {
+      background: $blue;
+      margin-bottom: 0;
+          /* margin-top: 20px; */
+      background: #3A5AA9;
+      margin-bottom: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      .link {
+        display: inline-block;
+        width: auto;
+        height: auto;
+        padding: 15px 0;
+        margin: 0 15px;
+        border-bottom: 5px solid #3A5AA9;
+
+        &:after, &:before{
+          display: none
+        }
+      }
+    }
+
     .link {
       display: inline-block;
       text-decoration: none;
@@ -324,6 +350,10 @@ header {
 .custom-table {
   padding-left: 20px;
   padding-right: 20px;
+
+  img {
+    max-width: 100%;
+  }
 
   .container {
     padding: 0 0 40px;
@@ -465,6 +495,10 @@ header {
   overflow: hidden;
   color: #898586;
 
+  img {
+    max-width: 100%;
+  }
+
   .orange {
     color: $orange;
   }
@@ -518,7 +552,7 @@ header {
   }
   @media screen and (max-width: $screen-xs-max) {
     .col-sm-6 + .col-sm-6 {
-      background: #EAEAEB;
+      padding-bottom: 20px;
     }
   }
 }
